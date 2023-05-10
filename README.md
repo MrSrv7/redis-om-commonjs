@@ -18,6 +18,8 @@ This is an example `NodeJS` application on how to use `redis-om` in the `CommonJ
 
 This example application is made with [redis-om-node-tutorial](https://github.com/redis-developer/redis-om-node-tutorial) as a base.
 
+I have added the `Postman API Collection JSON` for a quick setup when testing the `REST API` endpoints. Check out the `Redis OM CommonJS API.json` in the root folder. This application can be used as a template if you need to implement `redis-om` in a legacy `CommonJS` application or planning to create a new `CommonJS` application.
+
 ### Disclaimer
 
-This is not an official CommonJS solution for implementing `redis-om`. I implemented this as a workaround as there is no proper documentation for implementing the same.
+This is not an official `CommonJS` solution for implementing `redis-om`. I implemented this as a workaround as there is no proper documentation for implementing the same yet. Also, this might feel highly opinionated as I created the app completely based on my coding style (creating the controllers, routes, helpers, etc.)
