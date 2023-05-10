@@ -1,0 +1,22 @@
+{
+  "name": "redis-om-commonjs",
+  "version": "1.0.0",
+  "description": "Redis OM Implementation in a CommonJS App",
+  "main": "src/server.js",
+  "repository": "git@github.com:MrSrv7/redis-om-commonjs.git",
+  "author": "Sri Vineeth <mrsrv7d@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "redis": "^4.6.6",
+    "redis-om": "^0.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
