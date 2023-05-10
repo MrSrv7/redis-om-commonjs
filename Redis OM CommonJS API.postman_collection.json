@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "8fa87c3a-e06e-4cf2-b870-57ae601e750c",
+		"name": "Redis OM CommonJS API",
+		"description": "# 🚀 Redis OM CommonJS API Collection\n\nCRUD APIs (GET, POST, PUT, DELETE) for the CommonJS Node App with Redis OM\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n``` json\n{\n    \"title\": \"Teams\",\n    \"artist\": \"Dylan Beattie and the Linebreakers\",\n    \"genres\": [\n        \"downtempo\",\n        \"electronic\",\n        \"parody\",\n        \"rock\",\n        \"trip hop\"\n    ],\n    \"music\": \"\\\"Steam\\\" by Peter Gabriel\",\n    \"year\": 2021,\n    \"duration\": 285,\n    \"link\": \"https://www.youtube.com/watch?v=wRtKpfKwjKY\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [http://localhost:7777/songs](http://localhost:7777/songs). Replace it with your API endpoint to customize this collection.\n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11808197"
+	},
+	"item": [
+		{
+			"name": "Get All Songs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Song by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/01H027A2Z0577CCKDV6B5WF5SZ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"01H027A2Z0577CCKDV6B5WF5SZ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a New Song",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Teams\",\n    \"artist\": \"Dylan Beattie and the Linebreakers\",\n    \"genres\": [\n        \"downtempo\",\n        \"electronic\",\n        \"parody\",\n        \"rock\",\n        \"trip hop\"\n    ],\n    \"lyrics\": \"Forget Slack,\\\\nForget Slack,\\\\nCompany meeting, everybody’s out of sync,\\\\nI’m trying to join,\\\\nclicking on, clicking on this link, this link\\\\n\\\\nIs it Teams,\\\\n‘cos I don’t feel like I can deal,\\\\nWith all the broken login schemes,\\\\nThe UI is gonna make you scream,\\\\n\\\\nYou know your Discords from your Slacks,\\\\nYou know your email from your fax,\\\\nYou remember IRC, NNTP and Jabber too,\\\\nYou know your Jitsi from your Meet,\\\\nYour virtual background’s pretty neat,\\\\nWhen all the other tools are down, there’s always gather.town, and ICQ\\\\n\\\\nYou know your way around online,\\\\nYou know your Hopin from your PINE,\\\\nYou know the time in Amsterdam, Seattle, Milan, and Timbuktu\\\\nYou speak at virtual events,\\\\nCan’t even see your audience,\\\\nIt’s like you’re talking to the void, it’ll leave you paranoid and feeling blue,\\\\n\\\\nEverybody Facetime, Telegram, Signal, Chime,\\\\nWebcam, microphone, Sat at home, all alone,\\\\nZoom, shake, head ache, find a way to stay awake,\\\\nSeven hours without a break, This is more than I can take!\\\\n\\\\nWe’re working in Teams, baby,\\\\nYeah we’re working in Teams, around here now,\\\\nYeah, we’re living in the future\\\\nAnd believing all the hype,\\\\nJust don’t ask any questions\\\\nAbout what happened to Skype,\\\\nWe’re shipping all our features\\\\nGot to hit that milestone,\\\\nGotta keep talking, talking, talking\\\\nbut no-one’s talking on the phone,\\\\nWe’re on Teams, baby,\\\\nWe’re running on Teams around here now…\\\\nOn 365\\\\nOn 365\\\\nJust gimme some Teams\",\n    \"music\": \"\\\"Steam\\\" by Peter Gabriel\",\n    \"year\": 2021,\n    \"duration\": 285,\n    \"link\": \"https://www.youtube.com/watch?v=wRtKpfKwjKY\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"add"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Song",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"JS Bug\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/edit/01H027A2Z0577CCKDV6B5WF5SZ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"edit",
+						"01H027A2Z0577CCKDV6B5WF5SZ"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/delete/01H027A2Z0577CCKDV6B5WF5SZ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"delete",
+						"01H027A2Z0577CCKDV6B5WF5SZ"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:7777/songs"
+		}
+	]
+}
