@@ -14,6 +14,16 @@
 
 Checkout [Redis](https://redis.io/), [redis-om](https://github.com/redis/redis-om-node)
 
+> ## ⚠️ Warning: This Version Has Breaking Changes from 0.3.6
+>
+> Redis OM 0.4 is new, improved, and includes breaking changes. If you're trying it for the first time, no worries. Just follow what's in this README and you'll be fine.
+>
+> However, you might be a user of Redis OM already. If that is the case, you'll want to review this document to understand those changes.
+>
+> Of course, you don't have to upgrade. If this is you, you'll want to check out [the README for that version](https://www.npmjs.com/package/redis-om/v/0.3.6) over on NPM.
+>
+> However, I hope you choose to try the new version. It has many changes that have been frequently requested that are documented in the [CHANGELOG](CHANGELOG). And more, *non-breaking* changes will follow these.
+
 This is an example `NodeJS` application on how to use `redis-om` in the `CommonJS` approach. As I worked on a legacy NodeJS app written in CommonJS Syntax, I could not use the Module approach (like import, top-level await, etc.), so this is how I implemented redis-om in the legacy NodeJS app. Please let me know if there is anything that can be implemented better.
 
 This example application is made with [redis-om-node-tutorial](https://github.com/redis-developer/redis-om-node-tutorial) as a base.
